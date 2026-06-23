@@ -24,7 +24,9 @@ jobs:
      - name: Build image
        run: |
          docker build \
-         -t ${{ secrets.DOCKERHUB_USERNAME }}/isi_housing:latest .
+        -t ${{ secrets.DOCKERHUB_USERNAME }}/isi_housing:${{ github.sha }} \
+        -t ${{ secrets.DOCKERHUB_USERNAME }}/isi_housing:latest .
+
 
      - name: Push image
        run: |
